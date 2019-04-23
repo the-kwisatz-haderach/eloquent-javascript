@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="title" content="Javascript Exercises"/>
+    <meta name="description" content="This is a Javascript testpage." />
+    <meta name="author" content="Gustaf Lundström" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+    <script>
+        function printChessboard(size) {
+            let board = '';
+            let row = '';
+            let col = '';
+            for (let i = 0; i < size; i++) {
+                row = '';
+                col = '';
+                for (let j = 0; j < size; j++) {
+                    col += ' ';
+                    col += '#';
+                }
+                
+                if (i % 2 === 0) {
+                    row = ' ' + col + '\n';
+                } else {
+                    row = col + '\n';
+                }
+                board += row;
+            }
+
+            console.log(board);
+        }
+        
+        printChessboard(5);
+    </script>
+</body>
+</html>
