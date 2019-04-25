@@ -1,0 +1,26 @@
+{
+  "name": "eloquent-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.16.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4",
+    "eslint": "^5.16.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Storchillarn/eloquent-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Storchillarn/eloquent-javascript/issues"
+  },
+  "homepage": "https://github.com/Storchillarn/eloquent-javascript#readme"
+}
