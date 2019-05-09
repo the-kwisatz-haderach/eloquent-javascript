@@ -8,17 +8,28 @@ describe('The Range function', () => {
         assert.deepEqual(functions.range(0, 1), [0, 1]);
     });
 
-    it('should throw for more or less than two arguments', () => {
+    it('should throw for less than two arguments and more than three arguments', () => {
         assert.throws(() => {functions.range(1)});
-        assert.throws(() => {functions.range(1, 2, 3)});
+        assert.throws(() => {functions.range(1, 2, 3, 4)});
     });
 
     it('should accept negative ranges', () => {
         assert.deepEqual([-5, -4, -3, -2, -1], functions.range(-5, -1));
     });
 
-    it('should throw error if end is smaller than start', () => {
-        assert.throws(() => {functions.range(5, 2)});
+    it(`should throw error if end is smaller than start and step is positive
+    or end is larger than start and step is negative`, () => {
+        assert.throws(() => {functions.range(5, 2, 2)});
+        assert.throws(() => {functions.range(10, 0, 3)});
+        assert.throws(() => {functions.range(1, 6, -1)});
+    });
+
+    it(`should take an optional third argument which determines steps
+    where a step is the increment with which to move from start to end`, ()=> {
+        assert.deepEqual([2, 4, 6, 8], functions.range(2, 8, 2));
+        assert.deepEqual([1, 4, 7, 10], functions.range(1, 10, 3));
+        assert.deepEqual([1, 4, 7, 10], functions.range(1, 11, 3));
+        // assert.deepEqual([8, 6, 4, 2, 0], functions.range(8, 0, -2));
     });
 });
 
