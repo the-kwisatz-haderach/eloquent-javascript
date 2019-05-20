@@ -13,20 +13,6 @@ function arrayToList(arr) {
 
 const list = arrayToList([1, 2, 3]);
 
-// function listToArray(list) {
-//     console.log(list.rest)
-//     let arr = [];
-    
-//     if (list.rest === null) {
-//         arr.push(list.value);
-//         return arr;
-//     } else {
-//         arr.push(list.value);
-//         arr.push(listToArray(list.rest));
-//         return arr;
-//     }
-// }
-
 function listToArray(list) {
     let arr = [];
     for (let node = list; node; node = node.rest) {
