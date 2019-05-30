@@ -11,28 +11,27 @@ function arrayToList(arr) {
     }
 }
 
-const list = arrayToList([1, 2, 3]);
-
-function listToArray(list) {
-    let arr = [];
-    let keys = [...arr.keys()];
-    console.log(keys);
-    
+function listToArray(list, arr) {
+    arr = arr || [];
     if (list.rest === null) {
         arr.push(list.value);
         return arr;
     } else {
         arr.push(list.value);
-        arr.push(listToArray(list.rest));
+        listToArray(list.rest, arr);
         return arr;
     }
 }
 
-console.log(listToArray(list));
-// function listToArray(list) {
-//     let arr = [];
-//     for (let node = list; node; node = node.rest) {
-//         arr.push(node.value);
-//     }
-//     return arr;
-// }
+function prepend(element, list) {
+    const newList = {};
+    newList.value = element;
+    newList.rest = list;
+    return newList;
+}
+
+function nth(index, list) {
+    if (index === 0) return list.value;
+    if (list.rest === null) return undefined;
+    else return nth(index - 1, list.rest);
+}
