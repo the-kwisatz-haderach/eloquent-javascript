@@ -1,4 +1,3 @@
-// Loops over array and checks that every value evaluates to true based on a given function.
 function every(arr, fn) {
     for (let i = 0; i < arr.length; i++) {
         let val = fn(arr[i]);
@@ -7,6 +6,14 @@ function every(arr, fn) {
     return true;
 }
 
-let arr = [2, 4, 6, 8, 14];
 
-console.log(every(arr, val => val % 2 === 0));
+function everySome(arr, fn) {
+    let flag = false;
+    arr.some((val, i, arr) => {
+        flag = fn(val);
+    })
+    return flag;
+}
+
+let arr = [2, 4, 6, 8, 10];
+console.log(everySome(arr, val => val % 2 !== 0));
