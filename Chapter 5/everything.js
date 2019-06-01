@@ -1,7 +1,6 @@
 function every(arr, fn) {
-    for (let i = 0; i < arr.length; i++) {
-        let val = fn(arr[i]);
-        if (!val) return false;
+    for (let val of arr) {
+        if (!fn(val)) return false;
     }
     return true;
 }
@@ -15,5 +14,6 @@ function everySome(arr, fn) {
     return flag;
 }
 
-let arr = [2, 4, 6, 8, 10];
-console.log(everySome(arr, val => val % 2 !== 0));
+let arr = [2, 4, 6, 8, 14];
+console.log(every(arr, val => val % 2 === 0));
+console.log(everySome(arr, val => val % 2 === 0));
